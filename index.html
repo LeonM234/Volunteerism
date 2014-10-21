@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>  
+    <link rel="stylesheet" href="main.css" type="text/css" />
     <title>Volunteerism</title>
   </head>
   <body>  
     <h1>Volunteerism</h1>
-      <select>
-        <option value="random_student" id="randStud">Random Student</option>
-        <option value="neighbor_pairing">Neighbor Pairing</option>
-        <option value="teams_of_three">Teams of Three</option>
-        <option value="random_pairing">Random Pairing</option>
-        <option value="random_n_pairing">Random-N Pairing</option>
+    <form id="generate-group">  
+      <select name="group-criteria">
+        <option value="random-student">Random Student</option>
+        <option value="neighbor-pairing">Neighbor Pairing</option>
+        <option value="teams-of-three">Teams of Three</option>
+        <option value="random-pairing">Random Pairing</option>
+        <option value="randN">Random-N Pairing</option>
       </select>
-    <button type="submit" value="Submit" id="pick">Pick</button>
-    <ol id="order_list">
+      <input class="hidden" type="number" value="1" />
+      <input type="submit" value="Pick" />
+    </form>
+    <ol id="order-list">
     </ol>
   </body>
   <script src="leonScript.js"></script>
