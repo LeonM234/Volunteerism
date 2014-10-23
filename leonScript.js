@@ -76,24 +76,30 @@ document.addEventListener('DOMContentLoaded', function(){
       $ol.innerHTML = "";
 
       var groupCriteria = $form.querySelector("select").value;
+      var shuffledStudents = arrayShuffle(students);
 
-      if (groupCriteria === "random-student"){
-        var studentNumber = getRandomInt(0, students.length);
-        var studentName = students[studentNumber];
-        addItemToList($ol, studentName);
-      } else if (groupCriteria === "neighbor-pairing") {
+      switch(groupCriteria){
+        case "random-student":
+          var studentNumber = getRandomInt(0, students.length);
+          var studentName = students[studentNumber];
+          addItemToList($ol, studentName);
+          break;
+        case "neighbor-pairing":
           neighborGrouping(students, 2, $ol);
-      } else if (groupCriteria === "teams-of-three"){
+          break;
+        case "teams-of-three":
           neighborGrouping(students, 3, $ol);
-      } else if (groupCriteria === "random-pairing"){
-          var shuffledStudents = arrayShuffle(students);
+          break;
+        case "random-pairing":
+          shuffledStudents = arrayShuffle(students);
           neighborGrouping(shuffledStudents, 2, $ol);
-      } else if (groupCriteria === "randN"){
-          var shuffledStudents = arrayShuffle(students);
+          break;
+        case "randN":
+          shuffledStudents = arrayShuffle(students);
           neighborGrouping(shuffledStudents, $numBox.value, $ol);
+          break;
       }
-    }
-   );
+  });
   });
 });
 
